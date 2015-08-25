@@ -1,0 +1,7 @@
+<p>Name: <%= @monster.name %></p>
+<p>Power: <%= @monster.power %></p>
+<p>Type: <%= @monster.monster_type.name %></p>
+<p>Team: <%= @monster.team.try(:name) %></p>
+
+<%= link_to 'Edit', edit_monster_path(@monster) %> |
+<%= link_to 'Back', monsters_path %>

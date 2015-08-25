@@ -1,0 +1,11 @@
+<%= form_for(@monster) do |f| %>
+	<p>Name: <%= @monster.name %></p>
+	<p>Power: <%= @monster.power %></p>
+	<p>Type: <%= @monster.monster_type.name %></p>
+	Select Team: <%= f.select(:team_id, Team.all.collect {|mt| [mt.name, mt.id]}, :prompt => 'Select') %>
+	<div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', monsters_path %>

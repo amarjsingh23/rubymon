@@ -1,0 +1,127 @@
+<h1>Listing Monsters by Teams</h1>
+
+<h3>With Out Team</h3>
+<table id="monsters">
+  <thead>
+    <tr>
+      <th data-sort="string-ins">Name</th>
+      <th data-sort="string-ins">Power</th>
+      <th data-sort="string-ins">Type</th>
+      <th colspan="4">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unassigned_monsters.each do |monster| %>
+      <tr>
+        <td><%= monster.name %></td>
+        <td><%= monster.power %></td>
+        <td><%= monster.monster_type.try(:name) %></td>
+        <td><%= link_to 'Show', monster %></td>
+        <td><%= link_to 'Edit', edit_monster_path(monster) %></td>
+        <td><%= link_to 'Destroy', monster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Assign Team', team_monster_path(monster) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<h3>Team1</h3>
+<% if @team1_monsters.present? %>
+  <table id="monsters1">
+    <thead>
+      <tr>
+        <th data-sort="string-ins">Name</th>
+        <th data-sort="string-ins">Power</th>
+        <th data-sort="string-ins">Type</th>
+        <th colspan="4">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @team1_monsters.each do |monster| %>
+        <tr>
+          <td><%= monster.name %></td>
+          <td><%= monster.power %></td>
+          <td><%= monster.monster_type.try(:name) %></td>
+          <td><%= link_to 'Show', monster %></td>
+          <td><%= link_to 'Edit', edit_monster_path(monster) %></td>
+          <td><%= link_to 'Destroy', monster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Change Team', team_monster_path(monster) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h4>There are no monster under this team.</h4>
+<% end %>
+
+<br />
+
+<h3>Team2</h3>
+<% if @team2_monsters.present? %>
+  <table id="monsters2">
+    <thead>
+      <tr>
+        <th data-sort="string-ins">Name</th>
+        <th data-sort="string-ins">Power</th>
+        <th data-sort="string-ins">Type</th>
+        <th colspan="4">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @team2_monsters.each do |monster| %>
+        <tr>
+          <td><%= monster.name %></td>
+          <td><%= monster.power %></td>
+          <td><%= monster.monster_type.try(:name) %></td>
+          <td><%= link_to 'Show', monster %></td>
+          <td><%= link_to 'Edit', edit_monster_path(monster) %></td>
+          <td><%= link_to 'Destroy', monster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Change Team', team_monster_path(monster) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h4>There are no monster under this team.</h4>
+<% end %>
+
+<br />
+
+<h3>Team3</h3>
+<% if @team3_monsters.present? %>
+  <table id="monsters3">
+    <thead>
+      <tr>
+        <th data-sort="string-ins">Name</th>
+        <th data-sort="string-ins">Power</th>
+        <th data-sort="string-ins">Type</th>
+        <th colspan="4">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @team3_monsters.each do |monster| %>
+        <tr>
+          <td><%= monster.name %></td>
+          <td><%= monster.power %></td>
+          <td><%= monster.monster_type.try(:name) %></td>
+          <td><%= link_to 'Show', monster %></td>
+          <td><%= link_to 'Edit', edit_monster_path(monster) %></td>
+          <td><%= link_to 'Destroy', monster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Change Team', team_monster_path(monster) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h4>There are no monster under this team.</h4>
+<% end %>
+
+<br>
+
+<%= link_to 'Back', monsters_path %>

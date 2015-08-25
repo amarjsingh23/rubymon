@@ -1,0 +1,32 @@
+<h1>Listing Monsters</h1>
+
+<table border="1" id="monsters">
+  <thead>
+    <tr>
+      <th data-sort="string-ins">Name</th>
+      <th data-sort="string-ins">Power</th>
+      <th data-sort="string-ins">Type</th>
+      <th data-sort="string-ins">Team</th>
+      <th colspan="4">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @monsters.each do |monster| %>
+      <tr>
+        <td><%= monster.name %></td>
+        <td><%= monster.power %></td>
+        <td><%= monster.monster_type.try(:name) %></td>
+        <td><%= monster.team.try(:name) %></td>
+        <td><%= link_to 'Show', monster %></td>
+        <td><%= link_to 'Edit', edit_monster_path(monster) %></td>
+        <td><%= link_to 'Destroy', monster, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Assign Team', team_monster_path(monster) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Monster', new_monster_path %> | <%= link_to 'Monster Teams', teams_monsters_path %>
